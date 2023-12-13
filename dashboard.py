@@ -12,7 +12,6 @@ st.set_page_config(
     layout="wide",
 )
 
-
 @st.cache_data
 def get_data(uploaded_file) -> pd.DataFrame:
     work_days, age, gender = extract_data(uploaded_file)
@@ -114,14 +113,14 @@ if uploaded_file is not None:
             st.pyplot(fig2)
             plt.close()
 
-        man = values['Мужчины'];
+        man = values['Мужчины']
         woman = values['Женщины']
-        older_group = values['Старше 35 лет'];
+        older_group = values['Старше 35 лет']
         younger_group = values['Младше 35 лет']
 
-        st.markdown("### Статистические тести")
-        st.markdown("### Нулевая гипотеза - нет отличия между групамми")
-        st.markdown("### 1. Группи распределены по полу")
+        st.markdown("### Статистические тесты")
+        st.markdown("### Нулевая гипотеза - нет различий между группами")
+        st.markdown("### 1. Группы распределены по полу")
 
         t1, p1 = shapiro_test(all_workers)
         t2, p2, flag2 = levene_test(man, woman)
@@ -142,7 +141,7 @@ if uploaded_file is not None:
         if p1 > alpha:
             st.markdown("#### Нормальное распределение: p > 0.05")
         else:
-            st.markdown("#### Распределение не является нормальним: p > 0.05")
+            st.markdown("#### Распределение не является нормальным: p > 0.05")
 
         st.markdown("#### 2) Левене тест")
         col1, col2, = st.columns(2)
@@ -151,14 +150,14 @@ if uploaded_file is not None:
             value=round(t2, 3),
         )
         col2.metric(
-            label="p - уровень значимости",
+            label="p-уровень значимости",
             value=round(p2, 3),
         )
 
         if p2 > alpha:
             st.markdown("#### Дисперсии в двух выборках не имеют значимых различий: p > 0.05")
         else:
-            st.markdown("#### Дисперсии отличаютcя: p < 0.05")
+            st.markdown("#### Дисперсии отличаютcья: p < 0.05")
 
         st.markdown("#### 3) t-критерий Стьюдента")
         col1, col2, = st.columns(2)
@@ -167,16 +166,16 @@ if uploaded_file is not None:
             value=round(t3, 3),
         )
         col2.metric(
-            label="p - уровень значимости",
+            label="p-уровень значимости",
             value=round(p3, 3),
         )
 
         if p2 > alpha:
-            st.markdown("#### Нулевую гипотезу не получилось отвергнут - различие между группамы незначимо: p > 0.05")
+            st.markdown("#### Нулевую гипотезу не получилось отвергнуть - различие между группами незначимо: p > 0.05")
         else:
-            st.markdown("#### Отвергаем нулевую гипотезу - группы отличаются: p < 0.05")
+            st.markdown("#### Отвергаем нулевую гипотезу - группы отличаютсья: p < 0.05")
 
-        st.markdown("### 2. Группи распределены по возрасту")
+        st.markdown("### 2. Группы распределены по возрасту")
         t2, p2, flag2 = levene_test(older_group, younger_group)
         t3, p3 = t_test(older_group, younger_group, flag2)
 
@@ -195,7 +194,7 @@ if uploaded_file is not None:
         if p1 > alpha:
             st.markdown("#### Нормальное распределение: p > 0.05")
         else:
-            st.markdown("#### Распределение не является нормальним: p > 0.05")
+            st.markdown("#### Распределение не является нормальным: p > 0.05")
 
         st.markdown("#### 2) Левене тест")
         col1, col2, = st.columns(2)
@@ -204,7 +203,7 @@ if uploaded_file is not None:
             value=round(t2, 3),
         )
         col2.metric(
-            label="p - уровень значимости",
+            label="p-уровень значимости",
             value=round(p2, 3),
         )
 
@@ -220,12 +219,12 @@ if uploaded_file is not None:
             value=round(t3, 3),
         )
         col2.metric(
-            label="p - уровень значимости",
+            label="p-уровень значимости",
             value=round(p3, 3),
         )
 
         if p2 > alpha:
             st.markdown(
-                "#### Нулевую гипотезу не получилось отвергнут - различие между группамы незначимо: p > 0.05")
+                "#### Нулевую гипотезу не получилось отвергнуть - различие между группами незначимо: p > 0.05")
         else:
-            st.markdown("#### Отвергаем нулевую гипотезу - группы отличаются: p < 0.05")
+            st.markdown("#### Отвергаем нулевую гипотезу - группы отличаютсья: p < 0.05")

@@ -19,11 +19,11 @@ def get_data(uploaded_file) -> pd.DataFrame:
     return pd.DataFrame(my_dict)
 
 
-uploaded_file = st.file_uploader("Выберыте файл - по формату аналогичный «М.Тех_Данные_к_ТЗ_DS»")
+uploaded_file = st.file_uploader("Выберыте файл, аналогичный формату «М.Тех_Данные_к_ТЗ_DS»")
 if uploaded_file is not None:
     data1 = get_data(uploaded_file)
 
-    st.markdown("### Таблица 1 - данные в таблице можно менять")
+    st.markdown("### Таблица 1 - данные в таблице можно изменять")
     gb = GridOptionsBuilder.from_dataframe(data1)
     gb.configure_column('Количество больничных дней', editable=True)
     gb.configure_column('Возраст', editable=True)
@@ -47,14 +47,14 @@ if uploaded_file is not None:
             ax[0].pie([risk_group[0], risk_group[1]], explode=explode, labels=['Мужчины', 'Женщины'], autopct='%1.1f%%',
                       shadow={'ox': -0.04, 'edgecolor': 'none', 'shade': 0.9}, startangle=90,
                       colors=['olivedrab', 'rosybrown'])
-            ax[0].set_title("Персонал пропускающий более 2 рабочих дней - доля по полу")
+            ax[0].set_title("Персонал, пропускающий более 2 рабочих дней - доля по полу")
 
             explode = (0, 0.1)
             ax[1].pie([risk_group[2], risk_group[3]], explode=explode, labels=['Старше 35 лет', 'Младше 35 лет'],
                       autopct='%1.1f%%',
                       shadow={'ox': -0.04, 'edgecolor': 'none', 'shade': 0.9}, startangle=90,
                       colors=['olivedrab', 'rosybrown'])
-            ax[1].set_title("Персонал пропускающий более 2 рабочих дней - доля по возрасту")
+            ax[1].set_title("Персонал, пропускающий более 2 рабочих дней - доля по возрасту")
             st.write(fig)
             plt.close()
         with col2:
@@ -127,7 +127,7 @@ if uploaded_file is not None:
         t3, p3 = t_test(man, woman, flag2)
         alpha = 0.05
 
-        st.markdown("#### 1) Шапиро — Уилка тест")
+        st.markdown("#### 1) Тест Шапиро — Уилка")
         col1, col2, = st.columns(2)
         col1.metric(
             label="t-stat",
@@ -143,7 +143,7 @@ if uploaded_file is not None:
         else:
             st.markdown("#### Распределение не является нормальным: p > 0.05")
 
-        st.markdown("#### 2) Левене тест")
+        st.markdown("#### 2) Тест Левене")
         col1, col2, = st.columns(2)
         col1.metric(
             label="t-stat",
@@ -179,7 +179,7 @@ if uploaded_file is not None:
         t2, p2, flag2 = levene_test(older_group, younger_group)
         t3, p3 = t_test(older_group, younger_group, flag2)
 
-        st.markdown("#### 1) Шапиро — Уилка тест")
+        st.markdown("#### 1) Тест Шапиро — Уилка")
         col1, col2, = st.columns(2)
 
         col1.metric(
@@ -196,7 +196,7 @@ if uploaded_file is not None:
         else:
             st.markdown("#### Распределение не является нормальным: p > 0.05")
 
-        st.markdown("#### 2) Левене тест")
+        st.markdown("#### 2) Тест Левене")
         col1, col2, = st.columns(2)
         col1.metric(
             label="t-stat",

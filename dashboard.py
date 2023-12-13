@@ -79,14 +79,14 @@ if uploaded_file is not None:
             fig, ax = plt.subplots(2, figsize=(10, 5))
             explode = (0, 0.1)
             ax[0].pie([risk_group[2], all_workers[2] - risk_group[2]], explode=explode,
-                      labels=['Пропускающие более 2 рабочых дней ', 'Не пропускающие'], autopct='%1.1f%%',
+                      labels=['Пропускающие более 2 рабочих дней ', 'Не пропускающие'], autopct='%1.1f%%',
                       shadow={'ox': -0.04, 'edgecolor': 'none', 'shade': 0.9}, startangle=90,
                       colors=['cornflowerblue', 'gold'])
             ax[0].set_title("Персонал старше 35 - доля по больничным дням")
 
             explode = (0, 0.1)
             ax[1].pie([risk_group[3], all_workers[3] - risk_group[3]], explode=explode,
-                      labels=['Пропускающие более 2 рабочых дней ', 'Не пропускающие'], autopct='%1.1f%%',
+                      labels=['Пропускающие более 2 рабочих дней ', 'Не пропускающие'], autopct='%1.1f%%',
                       shadow={'ox': -0.04, 'edgecolor': 'none', 'shade': 0.9}, startangle=90,
                       colors=['cornflowerblue', 'gold'])
             ax[1].set_title("Персонал младше 35 - доля по больничным дням")

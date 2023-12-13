@@ -1,0 +1,9 @@
+numpy
+pandas
+seaborn
+matplotlib.pyplot
+streamlit
+st_aggrid
+scipy.stats
+pandas
+numpy

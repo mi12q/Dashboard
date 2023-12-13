@@ -2,8 +2,6 @@ numpy~=1.26.2
 pandas~=2.1.4
 seaborn~=0.13.0
 streamlit~=1.29.0
-st_aggrid
-scipy.stats
 pandas
 numpy
 matplotlib~=3.8.2

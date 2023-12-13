@@ -6,4 +6,3 @@ streamlit
 st_aggrid
 scipy.stats
 pandas
-numpy

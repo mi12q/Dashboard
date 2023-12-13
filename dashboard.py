@@ -47,31 +47,31 @@ if uploaded_file is not None:
             ax[0].pie([risk_group[0], risk_group[1]], explode=explode, labels=['Мужчины', 'Женщины'], autopct='%1.1f%%',
                       shadow={'ox': -0.04, 'edgecolor': 'none', 'shade': 0.9}, startangle=90,
                       colors=['olivedrab', 'rosybrown'])
-            ax[0].set_title("Персонал пропускающий более 2 рабочых дней - доля по полу")
+            ax[0].set_title("Персонал пропускающий более 2 рабочих дней - доля по полу")
 
             explode = (0, 0.1)
             ax[1].pie([risk_group[2], risk_group[3]], explode=explode, labels=['Старше 35 лет', 'Младше 35 лет'],
                       autopct='%1.1f%%',
                       shadow={'ox': -0.04, 'edgecolor': 'none', 'shade': 0.9}, startangle=90,
                       colors=['olivedrab', 'rosybrown'])
-            ax[1].set_title("Персонал пропускающий более 2 рабочых дней - доля по возрасту")
+            ax[1].set_title("Персонал пропускающий более 2 рабочих дней - доля по возрасту")
             st.write(fig)
             plt.close()
         with col2:
             fig, ax = plt.subplots(2, figsize=(10, 5))
             explode = (0, 0.1)
             ax[0].pie([risk_group[0], all_workers[0] - risk_group[0]], explode=explode,
-                      labels=['Пропускающие более 2 рабочых дней ', 'Не пропускающие'], autopct='%1.1f%%',
+                      labels=['Пропускающие более 2 рабочих дней ', 'Не пропускающие'], autopct='%1.1f%%',
                       shadow={'ox': -0.04, 'edgecolor': 'none', 'shade': 0.9}, startangle=90,
                       colors=sns.color_palette('Set2'))
-            ax[0].set_title("Мужчины- доля по больничным дням")
+            ax[0].set_title("Мужчины - доля по больничным дням")
 
             explode = (0, 0.1)
             ax[1].pie([risk_group[1], all_workers[1] - risk_group[1]], explode=explode,
-                      labels=['Пропускающие более 2 рабочых дней ', 'Не пропускающие'], autopct='%1.1f%%',
+                      labels=['Пропускающие более 2 рабочих дней ', 'Не пропускающие'], autopct='%1.1f%%',
                       shadow={'ox': -0.04, 'edgecolor': 'none', 'shade': 0.9}, startangle=90,
                       colors=sns.color_palette('Set2'))
-            ax[1].set_title("Женщины- доля по больничным дням")
+            ax[1].set_title("Женщины - доля по больничным дням")
             st.write(fig)
             plt.close()
 
